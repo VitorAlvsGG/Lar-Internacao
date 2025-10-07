@@ -1,3 +1,4 @@
+/* ===== RESET E BASE ===== */
 * {
   margin: 0;
   padding: 0;
@@ -8,12 +9,14 @@
 body {
   background-color: #f5f9fc;
   color: #333;
+  overflow-x: hidden;
 }
 
+/* ===== CABEÇALHO E NAVEGAÇÃO ===== */
 header {
   background-color: #02366b;
   color: white;
-  padding: 30px 0;
+  padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -27,36 +30,48 @@ header {
   margin: auto;
 }
 
+.logo img {
+  height: 65px;
+  width: auto;
+}
+
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
+
 .navbar a {
   color: white;
   text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .navbar a:hover {
   color: #9be2ff;
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
- .logo img {
-  height: 70px;     
-  width: auto;      
-  display: flex;
- }
-
-.logo {
-  margin-right: 20px;
+/* ===== MENU RESPONSIVO ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
 }
 
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* ===== HERO ===== */
 .hero {
   position: relative;
   background-image: url(./img/clinica.png);
@@ -68,7 +83,6 @@ header {
   align-items: center;
   text-align: center;
   color: #fff;
-  font-family: "Poppins", Arial, sans-serif;
 }
 
 .hero .overlay {
@@ -77,7 +91,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 41, 112, 0.55); /* Azul transparente */
+  background: rgba(0, 41, 112, 0.55);
   z-index: 1;
 }
 
@@ -114,25 +128,9 @@ header {
   transform: scale(1.05);
 }
 
-.hero-content {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 10px;
-}
-
-.btn {
-  background-color: #00b4d8;
-  padding: 12px 25px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-block;
-  font-weight: bold;
-}
-
+/* ===== SEÇÕES ===== */
 .section {
-  padding: 60px 10%;
+  padding: 80px 10%;
   text-align: center;
 }
 
@@ -140,11 +138,23 @@ header {
   background-color: #edf6f9;
 }
 
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #02366b;
+}
+
+.section p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* ===== CARDS ===== */
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
   margin-top: 30px;
 }
 
@@ -152,14 +162,21 @@ header {
   background: white;
   width: 300px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card h3 {
   color: #00509e;
+  margin-bottom: 10px;
 }
 
+/* ===== GALERIA ===== */
 .galeria {
   display: flex;
   flex-wrap: wrap;
@@ -171,26 +188,14 @@ header {
   width: 300px;
   border-radius: 10px;
   object-fit: cover;
-}
-footer {
-  background-color: #00509e;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
+  transition: transform 0.3s ease;
 }
 
-/* Botão flutuante */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
+.galeria img:hover {
+  transform: scale(1.03);
 }
-.whatsapp-float img {
-  width: 100%;
-}
-/* ===== Formulário de Contato ===== */
+
+/* ===== FORMULÁRIO DE CONTATO ===== */
 #Contato {
   background-color: #f9fbfd;
   border: 1px solid #dce3eb;
@@ -202,14 +207,12 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Poppins", Arial, sans-serif;
 }
 
 #Contato h2 {
   color: #1e3a8a;
   margin-bottom: 20px;
   font-size: 1.8em;
-  text-align: center;
 }
 
 #Contato input,
@@ -220,8 +223,8 @@ footer {
   border: 1px solid #ccd6e0;
   border-radius: 8px;
   font-size: 1em;
-  transition: all 0.3s ease;
   background-color: #ffffff;
+  transition: 0.3s;
 }
 
 #Contato input:focus,
@@ -249,18 +252,122 @@ footer {
   transform: translateY(-2px);
 }
 
-#Contato button:active {
-  transform: translateY(0);
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 65px;
+  z-index: 999;
 }
 
-/* ===== Responsividade ===== */
-@media (max-width: 480px) {
-  #Contato {
-    padding: 20px;
-    max-width: 90%;
+.whatsapp-float img {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img:hover {
+  transform: scale(1.1);
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  background-color: #00509e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer a {
+  color: #9be2ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .navbar ul {
+    gap: 15px;
   }
 
-  #Contato h2 {
-    font-size: 1.5em;
+  .conteudo-hero h1 {
+    font-size: 2.4em;
+  }
+
+  .cards {
+    gap: 15px;
+  }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+  .navbar ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #02366b;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    display: none;
+    padding: 20px 0;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .conteudo-hero h1 {
+    font-size: 2em;
+  }
+
+  .conteudo-hero p {
+    font-size: 1em;
+  }
+
+  .cards,
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card,
+  .galeria img {
+    width: 90%;
+  }
+
+  #Contato {
+    max-width: 90%;
+  }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  .conteudo-hero h1 {
+    font-size: 1.6em;
+  }
+
+  .conteudo-hero p {
+    font-size: 0.95em;
+  }
+
+  .botao-cta {
+    padding: 10px 20px;
+  }
+
+  .navbar a {
+    font-size: 1rem;
   }
 }
